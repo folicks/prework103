@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  font-family: 'Press Start 2P', monospace;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  font-family: 'Press Start 2P', monospace;
+}
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #111;
+  background: radial-gradient(circle at top left, #0f0, #000);
+  color: #0f0;
+}
+
+a {
+  font-weight: 500;
+  color: #f0f;
+  text-decoration: inherit;
+  text-shadow: 1px 1px #000;
+}
+a:hover {
+  color: #ff0;
+}
+
+button, .btn {
+  border-radius: 8px;
+  border: 2px solid #0ff !important;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: 'Press Start 2P', monospace;
+  background-color: #222 !important;
+  color: #0ff !important;
+  box-shadow: 0 0 5px #0ff;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  text-shadow: 1px 1px #000;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

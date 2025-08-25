@@ -1,0 +1,14 @@
+.creator-card{border:1px solid #e5e7eb;border-radius:12px;padding:12px;display:flex;gap:12px;align-items:flex-start;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.creator-image{width:80px;height:80px;object-fit:cover;border-radius:8px}
+.creator-info h2{margin:0 0 6px;font-size:1.1rem}
+.creator-info p{margin:0 0 8px;color:#374151}
+.creators-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.card-buttons { margin-top: 12px; }
+.edit-button {
+    padding: 4px 12px;
+    background-color: #f0f0f0;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9rem;
+}

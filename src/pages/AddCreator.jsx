@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../client';
 
-const AddCreator = ({ onCreated }) => {
+const AddCreator = ({ onCreated, creators, setCreators }) => {
   const navigate = useNavigate();
   const [form, setForm] = useState({ name: '', url: '', description: '', imageURL: '' });
   const [submitting, setSubmitting] = useState(false);
@@ -17,8 +17,11 @@ const AddCreator = ({ onCreated }) => {
     try {
       const payload = { ...form };
       if (!payload.imageURL) delete payload.imageURL; // optional
-      const { error } = await supabase.from('creators').insert([payload]);
+      const { data, error } = await supabase.from('creators').insert([payload]).select();
       if (error) throw error;
+      if (setCreators && data && data.length) {
+        setCreators([...(creators || []), data[0]]);
+      }
       if (onCreated) await onCreated();
       navigate('/');
     } catch (err) {

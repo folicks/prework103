@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ContentCreatorCard from '../components/ContentCreatorCard';
 
-const ShowCreators = ({ creators = [], loading, error }) => {
+const ShowCreators = ({ creators = [], setCreators, loading, error }) => {
   if (loading) return <p>Loading creators...</p>;
   if (error) return <p style={{ color: 'red' }}>{error}</p>;
   if (!creators.length)

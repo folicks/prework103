@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { supabase } from '../client';
 
-const EditCreator = () => {
+const EditCreator = ({ creators, setCreators }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [form, setForm] = useState({ name: '', url: '', description: '', imageURL: '' });
@@ -50,6 +50,14 @@ const EditCreator = () => {
         .update(payload)
         .eq('id', id);
       if (error) throw error;
+      // Update creators state
+      if (setCreators && creators) {
+        setCreators(
+          creators.map((c) =>
+            c.id === Number(id) ? { ...c, ...payload } : c
+          )
+        );
+      }
       navigate(`/creator/${id}`);
     } catch (err) {
       setError(err.message || 'Failed to save');
@@ -63,6 +71,10 @@ const EditCreator = () => {
     try {
       const { error } = await supabase.from('creators').delete().eq('id', id);
       if (error) throw error;
+      // Update creators state
+      if (setCreators && creators) {
+        setCreators(creators.filter((c) => c.id !== Number(id)));
+      }
       navigate('/');
     } catch (err) {
       setError(err.message || 'Failed to delete');

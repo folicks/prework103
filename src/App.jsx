@@ -4,6 +4,7 @@ import ShowCreators from './pages/ShowCreators';
 import ViewCreator from './pages/ViewCreator';
 import EditCreator from './pages/EditCreator';
 import AddCreator from './pages/AddCreator';
+import Navbar from './components/Navbar';
 import { supabase } from './client';
 import './App.css';
 
@@ -41,13 +42,18 @@ function App() {
   }, [fetchCreators]);
 
   const routes = useRoutes([
-    { path: '/', element: <ShowCreators creators={creators} loading={loading} error={error} /> },
-    { path: '/creator/:id', element: <ViewCreator /> },
-    { path: '/creator/:id/edit', element: <EditCreator onUpdated={fetchCreators} /> },
-    { path: '/add', element: <AddCreator onCreated={fetchCreators} /> },
+    { path: '/', element: <ShowCreators creators={creators} setCreators={setCreators} loading={loading} error={error} /> },
+    { path: '/creator/:id', element: <ViewCreator creators={creators} setCreators={setCreators} /> },
+    { path: '/creator/:id/edit', element: <EditCreator onUpdated={fetchCreators} creators={creators} setCreators={setCreators} /> },
+    { path: '/add', element: <AddCreator onCreated={fetchCreators} creators={creators} setCreators={setCreators} /> },
   ]);
 
-  return <div className="App">{routes}</div>;
+  return (
+    <div className="App">
+      <Navbar />
+      {routes}
+    </div>
+  );
 }
 
 export default App

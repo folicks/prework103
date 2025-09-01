@@ -12,3 +12,42 @@
     color: #333;
     font-size: 0.9rem;
 }
+/* Horizontal card layout */
+.horizontal-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid #0ff;
+    background: #222;
+    color: #0f0;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.creator-image-horizontal {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-right: 24px;
+}
+
+.creator-info-horizontal {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-title {
+    margin: 0 0 8px 0;
+}
+
+.card-desc-white {
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.card-buttons {
+    margin-top: 8px;
+}
